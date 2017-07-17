@@ -5,4 +5,4 @@ Durch die Verwendung in Interfaces kann über default-Methoden auf zugehörige E
 
 Somit kann in einem Interface eine stark erweiterte Verarbeitung stattfinden. 
 
-Durch die Verwendung von Schnittstellen, die von InterfaceWithAttributes erben, kann komplexe Funktionalität in diese eingelagert werden.
+Durch die Verwendung von Schnittstellen, die von InterfaceWithAttributes erben, kann mit Hilfe vor allem mit objektbezogener Eigenschaften komplexe Funktionalität in diese eingelagert werden. Mit der Implementierung eigener Schnittstellen, kann durch eine simple Initialisierung die komplette Funktionalität übernommen werden.
