@@ -31,11 +31,8 @@ class InterfaceWithAttributeController {
   @SuppressWarnings("unused")
   private static final long                                                        serialVersionUID     = 1L;
   
-  ///* -- Deklaration ------------------------------------------------------------------------------- */
+  /* -- Deklaration ------------------------------------------------------------------------------- */
   /*   -- Konstante ---------------------------------------------------------------- */
-  
-  //  /** @since 18.06.2016 09:49:40 Lutz Hoffarth | Realisierung */
-  //  private static final String                                                      INTERFACE_WITH_ATTRIBUTES_NAME = "InterfaceWithAttributes";
   
   /** 
    * Jedes Objekt oder Interface der Spezialisierung des Interfaces kann viele Objekt-Attribute beinhalten.
@@ -46,17 +43,24 @@ class InterfaceWithAttributeController {
    * Die Einträge der {@link WeakHashMap} werden automatisch vom GarbageCollector entfernt, wenn es 
    * keine starke Referenz mehr auf das jeweilige Object im Schlüssel gibt.
    * <p>
+   * Der Controller wird ausschließlich durch die Schnittstelle {@link InterfaceWithAttributes} verwendet.
+   * <p>
    * @since 26.10.2014 07:39:41 Lutz Hoffarth | Realisierung 
    * @since 13.07.2017 10:10:40 Lutz Hoffarth | Methoden und Konstante von {@link InterfaceWithAttributes} eingelagert
    */
   private static final WeakHashMap<InterfaceWithAttributes, AttributesOfInterface> OBJECT_ATTRIBUTES    = new WeakHashMap<>();
+  
   /** 
    * Jede Klasse oder Interface die {@link InterfaceWithAttributes} spezialisiert, 
-   * kann viele Klassen-Attribute beinhalten.
+   * kann keine oder viele Klassen-Attribute beinhalten.
    * <p>
    * @since 03.12.2014 16:45:46 Lutz Hoffarth | Realisierung */
   private static final WeakHashMap<Class<?>, AttributesOfInterface>                CLASS_ATTRIBUTES     = new WeakHashMap<>();
+  
   /** Statische Interface-Attribute die ausschließlich dem Interface {@link InterfaceWithAttributes} zugeordnet sind.
+   * <p>
+   * Alle Attribute der Schnittstelle sind über jedes Object der Klasse oder des Interfaces, die das Interface implementiert, erreichbar.
+   * <p>
    * @since 18.06.2016 09:44:08 Lutz Hoffarth | Realisierung */
   private static final AttributesOfInterface                                       INTERFACE_ATTRIBUTES = new AttributesOfInterface();
   
@@ -67,7 +71,9 @@ class InterfaceWithAttributeController {
   /* -- Initialisierung --------------------------------------------------------------------------- */
   
   /**
-   * @param self 
+   * Die Initialisierung wird ausschließlich durch die Schnittstelle {@link InterfaceWithAttributes} verwendet.
+   * <p>
+   * @param self {@link InterfaceWithAttributeController} die das Interface verwendet.
    * @since 30.05.2017 14:33:23 Lutz Hoffarth | Realisierung
    */
   static void init(InterfaceWithAttributes self) {
@@ -80,7 +86,8 @@ class InterfaceWithAttributeController {
   /* -- Logik ------------------------------------------------------------------------------------- */
   
   /**
-   * Liefert die zum Objekt gehörigen {@link AttributesOfInterface}s.<p>
+   * Liefert die zum Objekt gehörigen {@link AttributesOfInterface}s.
+   * <p>
    * @return {@link AttributesOfInterface}
    * @since 26.10.2014 07:47:25 Lutz Hoffarth | Realisierung
    * @since 13.07.2017 09:38:57 Lutz Hoffarth | In Controller eingelagert.
@@ -97,6 +104,7 @@ class InterfaceWithAttributeController {
   
   /**
    * Liefert das Attribute des Objekts mit dem übergebenen Namen.
+   * <p>
    * @param key Attributname
    * @return Object
    * @since 22.12.2014 18:59:42 Lutz Hoffarth | Realisierung
@@ -109,6 +117,7 @@ class InterfaceWithAttributeController {
   
   /**
    * Setzt den Wert im Objekt-Attribute mit dem übergebenen Namen.
+   * <p>
    * @param key Attributname
    * @param value Wert
    * @since 22.12.2014 19:04:43 Lutz Hoffarth | Realisierung
@@ -118,7 +127,8 @@ class InterfaceWithAttributeController {
   }
   
   /**
-   * übernimmt alle Attribute der übergebenen Schnittstelle zu der bestehenden hinzu.<p>
+   * übernimmt alle Attribute der übergebenen Schnittstelle zu der bestehenden hinzu.
+   * <p>
    * @param as {@link InterfaceWithAttributes}
    * @since 18.11.2015 18:17:50 Lutz Hoffarth | Realisierung
    */
@@ -133,7 +143,8 @@ class InterfaceWithAttributeController {
   /* ---- Statische Eigenschaften der Klasse ------------------------------- */
   
   /**
-   * Liefert die zum Interface gehörigen statischen {@link AttributesOfInterface}s.<p>
+   * Liefert die zum Interface gehörigen statischen {@link AttributesOfInterface}s.
+   * <p>
    * @return {@link AttributesOfInterface}
    * @since 03.12.2014 16:46:47 Lutz Hoffarth | Realisierung
    */
@@ -145,6 +156,7 @@ class InterfaceWithAttributeController {
   
   /**
    * Liefert das statische Attribut der Klasse im Interface mit dem übergebenen Namen.
+   * <p>
    * @param key Attributname
    * @return Object
    * @since 22.12.2014 19:05:32 Lutz Hoffarth | Realisierung
@@ -157,6 +169,7 @@ class InterfaceWithAttributeController {
   
   /**
    * Setzt das statische Attribut der Klasse im Interface.
+   * <p>
    * @param key Attributname
    * @param value Wert
    * @since 22.12.2014 19:06:07 Lutz Hoffarth | Realisierung
@@ -168,7 +181,8 @@ class InterfaceWithAttributeController {
   /* ---- Statische Eigenschaften des Interfaces --------------------------- */
   
   /**
-   * Liefert die zum Interface gehörigen statischen {@link AttributesOfInterface}s.<p>
+   * Liefert die zum Interface gehörigen statischen {@link AttributesOfInterface}s.
+   * <p>
    * @return {@link AttributesOfInterface}
    * @since 03.12.2014 16:46:47 Lutz Hoffarth | Realisierung
    */
@@ -178,6 +192,7 @@ class InterfaceWithAttributeController {
   
   /**
    * Liefert das statische Attribut des Interfaces mit dem übergebenem Namen.
+   * <p>
    * @param key Attributname
    * @return Object
    * @since 18.06.2016 10:24:26 Lutz Hoffarth | Realisierung
@@ -188,6 +203,7 @@ class InterfaceWithAttributeController {
   
   /**
    * Setzt das statische Attribut des Interfaces.
+   * <p>
    * @param key Attributname
    * @param value Wert
    * @since 18.06.2016 10:24:26 Lutz Hoffarth | Realisierung
